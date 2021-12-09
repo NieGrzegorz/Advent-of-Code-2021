@@ -14,7 +14,21 @@ def addPointsToMap(pointA, pointB):
         for i in range(smaller, larger + 1):
             globalMap[i][pointA[1]] += 1
     else: 
-        
+        tempA = pointA
+        while tempA[0] != pointB[0] and tempA[1] != pointB[1]:
+            globalMap[tempA[0]][tempA[1]] += 1
+            
+            if tempA[0] > pointB[0]:
+                tempA[0] -= 1
+            else:
+                tempA[0] += 1
+
+            if tempA[1] > pointB[1]:
+                tempA[1] -= 1
+            else:
+                tempA[1] += 1
+
+        globalMap[pointB[0]][pointB[1]] += 1
 
 def drawLines(lines):
     for pair in lines:
